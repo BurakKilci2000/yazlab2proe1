@@ -1,0 +1,24 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.log
+
+# Editör
+.idea/
+.vscode/
+
+# LaTeX derleme artıkları
+*.aux
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# Sunum araçlarının ürettiği dosyalar
+kayitlar.txt
+elenenler.txt
