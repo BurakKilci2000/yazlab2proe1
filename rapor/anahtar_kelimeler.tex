@@ -1,0 +1,54 @@
+\begin{table*}[!t]
+\caption{SINIFLANDIRMADA KULLANILAN ANAHTAR KELİMELER VE AĞIRLIKLARI}
+\label{tab:anahtar}
+\centering\footnotesize
+\begin{tabular}{@{}p{0.15\textwidth}p{0.05\textwidth}p{0.74\textwidth}@{}}
+\toprule
+\textbf{Haber türü} & \textbf{Ağırlık} & \textbf{Anahtar kelimeler} \\
+\midrule
+Yangın & +4 & yangın, küle dön, kül oldu, kundak \\
+ & +3 & alevlere teslim, alev aldı, alev alev, tutuştu, söndürül, dumandan etkilen, yandı\textsuperscript{\dag} \\
+ & +2 & tutuşma, söndürme, yanarak \\
+ & +1 & alev, itfaiye, patlama \\
+ & -2 & yangın söndürme tüpü \\
+ & -5 & tatbikat \\
+\midrule
+Trafik Kazası & +5 & trafik kaza, zincirleme kaza \\
+ & +4 & yayaya çarp \\
+ & +3 & kafa kafaya, takla at, şarampol, kontrolden çık, direksiyon hakimiyet, çarpıştı, çarpışma, çarpışan, arkadan çarp, devrildi, devrilen, sürücüsü yaralandı, maddi hasar, kaza\textsuperscript{\dag}, kazada\textsuperscript{\dag}, kazaya\textsuperscript{\dag}, kazayı\textsuperscript{\dag}, kazayla\textsuperscript{\dag}, kazazede \\
+ & +2 & zincirleme, bariyer, refüj, kazası\textsuperscript{\dag}, kazalar \\
+ & +1 & otomobil, motosiklet, kamyon, tır\textsuperscript{\dag}, tırın\textsuperscript{\dag}, minibüs, sürücü, yaralandı, ambulans, trafik ekip, plakalı \\
+ & -3 & asfalt, ihale \\
+ & -4 & yol çalışma \\
+ & -5 & yeni kavşak, kavşak düzenleme, kavşak çalışma \\
+ & -6 & iş kaza, ağaç devril, direk devril \\
+\midrule
+Hırsızlık & +5 & hırsız \\
+ & +4 & çalıntı, gasp, soygun, soyuldu, yankesici, kapkaç \\
+ & +3 & çaldı\textsuperscript{\dag}, çaldılar, çalındı, çalınan, çalarak, çaldığı, çaldıkları \\
+ & +1 & ziynet, ele geçirildi, şüpheli, gözaltına, yakalandı, tutuklandı \\
+ & -3 & uyuşturucu, dolandırıcılık \\
+ & -4 & usulsüzlük, rüşvet, kapı çal, kapısını çal, zil çal \\
+ & -5 & öldür, cinayet, istiklal marşı \\
+\midrule
+Elektrik Kesintisi & +5 & elektrik kesinti, elektrikler kesil, enerji kesinti, elektrik verilemeye, elektrik verilmeye \\
+ & +4 & elektrikler gitti, elektriksiz, planlı kesinti, plansız kesinti, elektrik arıza \\
+ & +3 & kesinti yapılacak, kesinti uygulanacak \\
+ & +2 & sedaş, karanlıkta kal \\
+ & +1 & trafo, elektrik, kesinti \\
+ & -3 & seçim, meclis üye \\
+ & -5 & su kesinti, doğalgaz kesinti, doğal gaz kesinti, sanayi odası \\
+\midrule
+Kültürel Etkinlikler & +4 & konser\textsuperscript{\dag}, konseri, konserde, konsere, konserler, konserden, tiyatro, festival, dinleti, resital, kitap fuar \\
+ & +3 & sergi\textsuperscript{\dag}, sergisi, sergide\textsuperscript{\dag}, sergiye\textsuperscript{\dag}, sergiler, söyleşi, müzikal, opera\textsuperscript{\dag}, operası, operada\textsuperscript{\dag}, bale\textsuperscript{\dag}, orkestra, korosu, kültür sanat, imza günü, şenlik, panayır, sanatsever, kültür ve sanat, sempozyum, resim yarışması, film gösterim, sanat etkinli \\
+ & +2 & koro\textsuperscript{\dag}, kültürel, etkinlik, sahne, gösterim, sinema, şiir, sanatçı, müze, kültür merkezi, kitap okuma \\
+ & +1 & gösteri, fuar, atölye, konferans \\
+ & -3 & transfer, lig\textsuperscript{\dag}, aday, seçim, atama, atandı \\
+ & -4 & operasyon, tutuklan, gözaltı, futbol, maç\textsuperscript{\dag}, maçı \\
+ & -6 & uyuşturucu \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\begin{minipage}{0.96\textwidth}\footnotesize
+Kelimeler kök olarak eşleşir; Türkçe ekleriyle birlikte de bulunur (ör. \emph{yangın} $\rightarrow$ \emph{yangında}). \textsuperscript{\dag}~ile işaretli kelimeler yalnızca tam kelime olarak eşleşir (ör. \emph{kaza} eşleşir, \emph{kazanç} eşleşmez). Negatif ağırlıklar yanlış eşleşmeleri bastırır. Başlıktaki eşleşmeler 2 kat sayılır. Bir türün seçilebilmesi için haberde o türün ağırlığı en az 3 olan bir kelimesi geçmeli ve toplam puanı en az 4 olmalıdır. Puanı en yüksek puanın en az \%60'ı olan türler arasından öncelik sırasına göre seçim yapılır: Yangın $>$ Trafik Kazası $>$ Hırsızlık $>$ Elektrik Kesintisi $>$ Kültürel Etkinlikler.
+\end{minipage}
+\end{table*}

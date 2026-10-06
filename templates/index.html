@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kocaeli Haber Haritası</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {% if map_provider == "osm" %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="app">
+  <aside class="panel" aria-label="Filtreler ve haber listesi">
+    <header class="panel-head">
+      <h1>Kocaeli Haber Haritası</h1>
+      <p class="last-run" id="lastRun">Son tarama bilgisi yükleniyor</p>
+      {% if map_provider == "osm" %}
+      <p class="provider-note">Geçici harita: OpenStreetMap. Teslimde Google Maps kullanılmalı.</p>
+      {% endif %}
+    </header>
+
+    <div class="panel-scroll">
+      <section class="block" aria-labelledby="h-dates">
+        <h2 id="h-dates">Tarih aralığı</h2>
+        <div class="dates">
+          <label>Başlangıç <input type="date" id="startDate"></label>
+          <label>Bitiş <input type="date" id="endDate"></label>
+        </div>
+        <div class="quick" role="group" aria-label="Hazır tarih aralıkları">
+          <button type="button" data-days="1">Bugün</button>
+          <button type="button" data-days="3">Son 3 gün</button>
+          <button type="button" data-days="7">Son 7 gün</button>
+          <button type="button" data-days="30">Son 30 gün</button>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="h-types">
+        <h2 id="h-types">Olay türü</h2>
+        <ul class="types" id="typeList"></ul>
+      </section>
+
+      <section class="block" aria-labelledby="h-district">
+        <h2 id="h-district">İlçe</h2>
+        <select id="district" aria-labelledby="h-district">
+          <option value="">Tüm ilçeler</option>
+          {% for d in districts %}<option value="{{ d }}">{{ d }}</option>{% endfor %}
+        </select>
+      </section>
+
+      <div class="actions">
+        <button type="button" id="applyBtn" class="btn btn-primary">Filtrele</button>
+        <button type="button" id="resetBtn" class="btn btn-quiet">Sıfırla</button>
+      </div>
+
+      <section class="block scrape" aria-labelledby="h-scrape">
+        <h2 id="h-scrape">Haber toplama</h2>
+        <p class="hint">Sistem siteleri otomatik olarak düzenli aralıklarla tarar. İsterseniz şimdi de tarayabilirsiniz.</p>
+        <div class="scrape-row">
+          <label class="days-field">Son
+            <input type="number" id="scrapeDays" min="1" max="30" value="{{ app_config.defaultDays }}">
+            gün
+          </label>
+          <button type="button" id="scrapeBtn" class="btn btn-outline">Haberleri tara</button>
+        </div>
+        <p id="scrapeStatus" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="block news" aria-labelledby="h-news">
+        <h2 id="h-news">Son haberler <span class="count" id="newsCount"></span></h2>
+        <ol id="newsList" class="news-list"></ol>
+      </section>
+    </div>
+  </aside>
+
+  <main class="map-wrap">
+    <div id="map" aria-label="Kocaeli haritası"></div>
+    <div id="mapNotice" class="map-notice" hidden></div>
+  </main>
+</div>
+
+<script>window.APP_CONFIG = {{ app_config|tojson }};</script>
+{% if map_provider == "osm" %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+{% endif %}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% if map_provider == "google" and maps_key %}
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key={{ maps_key|urlencode }}&v=weekly&loading=async&callback=initMap&language=tr&region=TR"></script>
+{% endif %}
+</body>
+</html>
